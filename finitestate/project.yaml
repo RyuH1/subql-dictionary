@@ -1,0 +1,20 @@
+specVersion: 0.2.0
+name: SubQuery Dictionary - Finitestate Network
+version: 1.0.0
+description: "A SubQuery Dictionary Project that provides increased indexing speed to all projects"
+repository: https://github.com/subquery/subql-dictionary
+schema:
+  file: ./schema.graphql
+network:
+  genesisHash: "0x19757b969097d71a154bb26493078f179a8dec1dd9c75bd9d4586d38c659064e"
+  endpoint: wss://fs-api.ata.network
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
